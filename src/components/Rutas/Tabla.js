@@ -1,30 +1,38 @@
-import React from 'react'
-import { Table } from 'antd'
+import React from "react";
+import { Table } from "antd";
 
 const columns = [
   {
-    title: 'Documento',
-    dataIndex: 'documento',
-    key: 'documento'
+    title: "Documento",
+    dataIndex: "documento",
+    key: "documento",
   },
   {
-    title: 'Nombre',
-    dataIndex: 'Nombre',
-    key: 'nombre'
+    title: "Nombre",
+    dataIndex: "nombre",
+    key: "nombre",
   },
   {
-    title: 'Usuario',
-    dataIndex: 'usuario',
-    key: 'usuario'
+    title: "Dia Semana",
+    dataIndex: "diaSemana",
+    key: "diaSemana",
   },
-  {
-    title: 'Dia Semana',
-    dataIndex: 'dia',
-    key: 'dia'
-  }
-]
-function Tabla () {
-  return <Table columns={columns} />
+];
+function Tabla({ rutas, eliminarRuta }) {
+  return (
+    <Table
+      columns={columns}
+      dataSource={rutas}
+      pagination={{ position: ["bottomCenter"], defaultPageSize: 4 }}
+      onRow={(record, rowIndex) => {
+        return {
+          onDoubleClick: (event) => {
+            eliminarRuta(record._id, record.idUsuario);
+          }, // click row
+        };
+      }}
+    />
+  );
 }
 
-export default Tabla
+export default Tabla;

@@ -13,6 +13,7 @@
     "craco-less": "^1.17.0",
     "env-cmd": "^10.1.0",
     "leaflet": "^1.7.1",
+    "moment": "^2.29.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-leaflet": "^3.0.4",
