@@ -20,7 +20,7 @@ function Map({ localizacionUsuario }) {
     <MapContainer
       center={[7.869940353376568, -72.50701904296875]}
       zoom={12}
-      scrollWheelZoom={false}
+      
       style={{ width: "100%", height: "70vh" }}
     >
       <TileLayer
@@ -36,7 +36,7 @@ function Map({ localizacionUsuario }) {
                 <br />
                 {item.direccion}
                 <br />
-                {Moment(item.fecha).format("DD/MM/yyyy HH:mm:ss")}
+                {Moment(item.fecha).format("DD/MM/YYYY HH:mm")}
                 <br />
 
                 {item.tipo}
