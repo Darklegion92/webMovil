@@ -14,13 +14,12 @@ const myIcon = L.icon({
   shadowAnchor: [10, 10],
 });
 function Map({ localizacionUsuario }) {
-  Moment.locale("en");
+  Moment.locale("es");
 
   return (
     <MapContainer
       center={[7.869940353376568, -72.50701904296875]}
       zoom={12}
-      
       style={{ width: "100%", height: "70vh" }}
     >
       <TileLayer
@@ -28,17 +27,21 @@ function Map({ localizacionUsuario }) {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {localizacionUsuario &&
-        localizacionUsuario.map((item) => {
+        localizacionUsuario.map((item, i) => {
+          console.log(item);
           return (
-            <Marker position={[item.latitude, item.longitude]} icon={myIcon}>
+            <Marker
+              position={[item.latitude, item.longitude]}
+              icon={myIcon}
+              key={i}
+            >
               <Popup>
                 {item.nombre}
                 <br />
                 {item.direccion}
                 <br />
-                {Moment(item.fecha).format("DD/MM/YYYY HH:mm")}
+                {Moment(item.fecha).utc().format("DD/MM/YYYY hh:mm:ss")}
                 <br />
-
                 {item.tipo}
               </Popup>
             </Marker>
