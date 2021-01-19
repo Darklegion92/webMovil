@@ -6,7 +6,7 @@ const GlobalContext = React.createContext({})
 const { Provider, Consumer } = GlobalContext
 
 const GlobalProvider = ({ children }) => {
-  const URL = 'http://45.82.72.196:8085'
+  const URL = 'http://45.82.72.196:8089'
   const [usuario, setUsuario] = useState()
   const [isAuth, setIsAuth] = useState(false)
   const [usuarios, setUsuarios] = useState([])
