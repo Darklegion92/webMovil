@@ -85,17 +85,19 @@ const GlobalProvider = ({ children }) => {
         setIsAuth(false)
       }
     } catch (error) {
-      if (json.status === 401) {
-        message.info('Token ha expirado')
-        localStorage.clear()
-        setIsAuth(false)
-      } else if (json.status === 400) {
-        message.error('Token no válido')
-        localStorage.clear()
-        setIsAuth(false)
-      } else {
-        message.error('Error De Conexión, Intentelo Nuevamente')
-      }
+      if (json) {
+        if (json.status === 401) {
+          message.info('Token ha expirado')
+          localStorage.clear()
+          setIsAuth(false)
+        } else if (json.status === 400) {
+          message.error('Token no válido')
+          localStorage.clear()
+          setIsAuth(false)
+        } else {
+          message.error('Error De Conexión, Intentelo Nuevamente')
+        }
+      } else message.error('Error De Conexión, Intentelo Nuevamente')
     }
   }
 
