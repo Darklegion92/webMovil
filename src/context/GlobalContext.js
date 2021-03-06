@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { message } from "antd";
 import axios from "axios";
 
@@ -12,6 +12,10 @@ const GlobalProvider = ({ children }) => {
   const [usuarios, setUsuarios] = useState([])
   const [rutas, setRutas] = useState([])
   const [localizacionUsuario, setLocalizacionUsuario] = useState([])
+
+useEffect(()=>{
+  consultarUsuarios();
+},[])
 
   /**
    * Se encarga de validar las credenciales y darle acceso a la aplicacion
