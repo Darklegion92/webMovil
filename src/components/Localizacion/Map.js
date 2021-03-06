@@ -36,7 +36,7 @@ function Map({ localizacionUsuario }) {
                 <br />
                 {item.direccion}
                 <br />
-                {Moment(item.fecha).format("DD/MM/YYYY HH:mm")}
+                {Moment(item.fecha).utc().format("DD/MM/YYYY, h:mm:ss a")}
                 <br />
 
                 {item.tipo}

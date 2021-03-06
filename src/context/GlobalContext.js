@@ -193,6 +193,40 @@ const GlobalProvider = ({ children }) => {
     }
   }
 
+  const actualizarUsuario = async user => {
+    const token = localStorage.getItem('Token')
+
+    const json = await axios.post(
+      URL + '/usuario/actualizar',
+      { user },
+      { headers: { authorization: token } }
+    )
+
+
+    if(json.status===200){
+      return true
+    }else{
+      return false
+    }
+  }
+
+  const crearUsuario = async user => {
+    const token = localStorage.getItem('Token')
+
+    const json = await axios.post(
+      URL + '/usuario/guardar',
+      { user },
+      { headers: { authorization: token } }
+    )
+
+
+    if(json.status===200){
+      return true
+    }else{
+      return false
+    }
+  }
+
   return (
     <Provider
       value={{
@@ -207,7 +241,9 @@ const GlobalProvider = ({ children }) => {
         eliminarRuta,
         rutas,
         localizacionUsuarioFecha,
-        localizacionUsuario
+        localizacionUsuario,
+        actualizarUsuario,
+        crearUsuario
       }}
     >
       {children}
